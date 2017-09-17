@@ -1,4 +1,6 @@
 # Fridpa
+![image](https://raw.githubusercontent.com/tanprathan/Fridpa/master/fridpa.JPG)
+
 An automated wrapper script for unpacking, patching (Insert the load command into binary), re-signing and deploying apps on non-jailbroken device. Once the process is completed, the apps will launch in debugging mode with lldb attached and ready for hooking using Frida.
 
 ### Program Dependencies
