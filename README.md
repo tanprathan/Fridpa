@@ -1,2 +1,16 @@
 # Fridpa
-An automated wrapper script for patching iOS applications (IPA files) and work on non-jailbroken device
+An automated wrapper script for unpacking, patching (Insert the load command into binary), re-signing and deploying apps on non-jailbroken device. Once the process is completed, the apps will launch in debugging mode with lldb attached and ready for hooking using Frida.
+
+### Program Dependencies
+* optool (https://github.com/alexzielenski/optool)
+* ios-deploy (https://github.com/phonegap/ios-deploy)
+* FridaGadget.dylib (https://build.frida.re/frida/ios/lib/FridaGadget.dylib)
+
+### Contribution
+Your contributions and suggestions are welcome.
+
+### License
+
+[![Creative Commons License](http://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)
