@@ -3,7 +3,7 @@
 # apps on non-jailbroken device. Once the process is completed, the apps will
 # launch in debugging mode with lldb attached and ready for hooking using Frida
 #
-# Developed by Prathan Phongthiproek 
+# Developed by @tanprathan 
 
 export PATH=$PATH:/usr/libexec
 
