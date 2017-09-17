@@ -3,7 +3,7 @@
 # apps on non-jailbroken device. Once the process is completed, the apps will
 # launch in debugging mode with lldb attached and ready for hooking using Frida
 #
-# Developed by @tanprathan 
+# Developed by @tanprathan
 
 export PATH=$PATH:/usr/libexec
 
@@ -12,24 +12,25 @@ function patch()
 # Clear Payload folder
 rm -rf Payload*
 
-# Unpacking iOS package:
-APPPACKAGE="$(find *.ipa)"
+# Obtaining Certificate Identity from Developer profile:
 
 echo "" && echo -e "***** Listing Signing Identity *****"
 security find-identity -p codesigning -v
-echo "" && echo -n "Enter your Identity and press [ENTER]: "
+echo "" && echo -n "Enter your Identity (Same as mobileprovision) then press [ENTER]: "
 read SID
-echo "" && echo -e "***** Unpacking iOS package: $APPPACKAGE *****"
-unzip ${APPPACKAGE} > /dev/null
 
-# Identifying Application Name:
+# Unpacking and Identifying Application Name:
+echo "" && echo -n "Ensure the IPA and embedded.mobileprovision file are on the current directory [ENTER]"
+read OK
+APPPACKAGE="$(find *.ipa)"
+unzip ${APPPACKAGE} > /dev/null
 APPNAME="$(ls Payload)"
 
 # Copying Frida to Application folder and Inserting load command
 cp FridaGadget.dylib "Payload/${APPNAME}/"
 echo "" && echo -e "***** Inserting load command into Binary *****"
 APPBINARY=${APPNAME%.*}
-./optool install -c load -p "@executable_path/FridaGadget.dylib" -t "Payload/${APPNAME}/${APPBINARY}" > /dev/null
+./optool install -c load -p "@executable_path/FridaGadget.dylib" -t "Payload/${APPNAME}/${APPBINARY}"
 
 # Obtaining entitlements and Bundle ID:
 security cms -D -i embedded.mobileprovision > profile.plist
@@ -53,8 +54,9 @@ rm entitlements.plist
 rm profile.plist
 
 # Deploying application with debuggable mode:
+echo "" && echo -e "***** Deploying Application on iDevice *****"
 ios-deploy --bundle "Payload/${APPNAME}/"
-echo "" && echo -n "Trust Developer profile on Settings and press [ENTER]:"
+echo "" && echo -n "Trust Developer profile on Device Settings and press [ENTER]"
 read OK
 echo "" && echo -e "***** Deploying Application with Frida Server *****"
 ios-deploy --debug --bundle "Payload/${APPNAME}/"
@@ -64,6 +66,7 @@ exit 1
 function deploy()
 {
 APPNAME="$(ls Payload)"
+   echo "" && echo -e "***** Deploying Application with Frida Server *****"
    ios-deploy --debug --bundle "Payload/${APPNAME}/"
    exit 1
 }
