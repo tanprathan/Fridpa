@@ -26,5 +26,5 @@
 | \ | |  |    | |  |  | |   |    |  |  |\ |  |  __ |  |  | |\ |
 |  \| |__|  \_| |__|\ | |   \___ |__|\ | \|  \___| |__|\ | | \|
 
-[1] All-In-One
-[2] Loading App with Frida Server 
+[1] The (IPA)Builder
+[2] The Connector
