@@ -87,7 +87,7 @@ case ${option} in
       echo "+                            +"
       echo "++++++++++++++++++++++++++++++"
       echo ""
-      exit 1 # Command to come out of the program with status 1
+      exit 1
       ;;
 esac
 
