@@ -20,7 +20,7 @@
 `MMo             NMy         NMy     yo          -mMMh/``.:sNNM
 `MMo             NMy         NMy     yo           `odNNNNmy/mMN
 
-					     v1.0, @tanprathan
+					  github.com/tanprathan
              __              ___	      ___
 |\  |  __     |  __   _ |   /     __         /      __   _
 | \ | |  |    | |  |  | |   |    |  |  |\ |  |  __ |  |  | |\ |
