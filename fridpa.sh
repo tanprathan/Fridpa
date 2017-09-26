@@ -59,7 +59,7 @@ ios-deploy --bundle "Payload/${APPNAME}/"
 echo "" && echo -n "Trust Developer profile on Device Settings and press [ENTER]"
 read OK
 echo "" && echo -e "***** Deploying Application with Frida Server *****"
-ios-deploy --debug --bundle "Payload/${APPNAME}/"
+ios-deploy --noinstall --debug --bundle "Payload/${APPNAME}/"
 exit 0
 }
 
@@ -67,7 +67,7 @@ function deploy()
 {
 APPNAME="$(ls Payload)"
    echo "" && echo -e "***** Deploying Application with Frida Server *****"
-   ios-deploy --debug --bundle "Payload/${APPNAME}/"
+   ios-deploy --noinstall --debug --bundle "Payload/${APPNAME}/"
    exit 0
 }
 
