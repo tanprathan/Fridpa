@@ -6,7 +6,6 @@ An automated wrapper script for unpacking, patching (Insert the load command int
 ### Program Dependencies
 * optool (https://github.com/alexzielenski/optool)
 * ios-deploy (https://github.com/phonegap/ios-deploy)
-* FridaGadget.dylib (https://build.frida.re/frida/ios/lib/FridaGadget.dylib)
 
 ### Contribution
 Your contributions and suggestions are welcome.
