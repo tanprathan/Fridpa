@@ -6,13 +6,22 @@
 # Developed by @tanprathan
 
 export PATH=$PATH:/usr/libexec
+DYLIB=${pwd}/FridaGadget.dylib
+
+
 
 function patch() {
 	# Clear Payload folder
 	rm -rf Payload*
 
-	# Obtaining Certificate Identity from Developer profile:
+	# Download Frida DYLIB if not found
+	if [ ! -f $DYLIB ]; then
+		echo "FridaGadget.dylib not found"
+		echo "Download from the internet"
+		curl -O https://build.frida.re/frida/ios/lib/FridaGadget.dylib
+	fi
 
+	# Obtaining Certificate Identity from Developer profile:
 	echo "" && echo -e "***** Listing Signing Identity *****"
 	security find-identity -p codesigning -v
 	echo "" && echo -n "Enter your Identity (Same as mobileprovision) then press [ENTER]: "
